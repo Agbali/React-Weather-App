@@ -1,38 +1,146 @@
 .App {
   text-align: center;
+  font-family: sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  padding: 0;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.house-cont {
+  /* text-align: center; */
+  background-color: rgb(157, 191, 243);
+  max-width: 90%;
+  margin: 1.5rem auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search_inp {
+  width: 20rem;
+  border: 3px solid #fafaf8;
+  border-radius: 4rem 0 0 4rem;
+  font-size: 20px;
+  margin: 2rem -0.3rem 2rem 0;
+  padding: 10px;
+  outline: none;
+  background-color: transparent;
+}
+.submitBut {
+  padding: 13px;
+  width: 10rem;
+  font-size: 20px;
+  border: none;
+  margin-top: 2rem;
+  margin-bottom: -1.24rem;
+}
+.first_box {
+  margin-top: 20rem;
+}
+
+.lagos_f h1 {
+  font-size: 70px;
+}
+
+.lagos_f p {
+  font-size: 15px;
+}
+
+.lagos_f h2 {
+  font-size: 30px;
+}
+
+.lagos_f h3 {
+  font-size: 15px;
+  margin-top: -1rem;
+}
+.myarrow i {
+  margin: 1.5rem 0 -2rem 0;
+}
+.center-container {
+  background-color: #d9dad6;
+}
+
+.iconix p {
+  font-size: 20px;
+}
+
+.mooncloud {
+  font-size: 10rem;
+  color: yellow;
+}
+.text-center {
+  margin-top: 3rem;
+}
+.container {
+  margin-top: 1rem;
+}
+.content {
+  margin-left: -0.2rem;
+  font-size: 20px;
+}
+
+.content .row {
+  margin-bottom: 1rem;
+}
+
+.countryName span {
+  font-size: 10px;
+  position: relative;
+  top: -50px;
+}
+.tooltip.tooltiptext {
+  width: 160px;
+  bottom: 80%;
+  left: 40%;
+  margin-left: 80px;
+}
+
+.inFahrenheit {
+  text-decoration: none;
+}
+.inCelsius {
+  text-decoration: none;
+  cursor: default;
+  color: black;
+}
+
+.inCelsius:hover {
+  text-decoration: none;
+}
+
+.weatherDescription {
+  font-size: 1rem;
+  margin-left: 0.1rem;
+}
+.onlyButt {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.removeColor {
+  text-decoration: none;
+}
+.iconLocation {
+  margin-left: -30px;
+}
+
+.github {
+  text-align: center;
+}
+
+/* .App-header {
+  background-color: #e5e6eb;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

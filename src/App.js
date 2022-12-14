@@ -1,16 +1,36 @@
 import './App.css';
-import Weather from './Weather';
+import Heading from './Heading';
+import Form from "./Form";
+import Weather from "./Weather";
+import Footer from "./Footer";
+import Icondescription from "./Icondescription";
+import Forecast from "./Forecast";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      <h1>
-          OMOALO ESE!!!
-        </h1>
-        <Weather city="Paris"/>
-        
-      </header>
+      <Heading />
+      <div class="house-cont">
+        <div class="container">
+          <div class="row align-items-start">
+            <div class="row justify-content-between">
+              <div class="row">
+                <Form />
+              </div>
+              <Forecast />
+              <Icondescription />
+            </div>
+          </div>
+        </div>
+        <div class="center-container iconix">
+          <div class="container overflow-hidden ms-5" id="forecasting">
+            <Weather />
+          </div>
+        </div>
+      </div>
+      <Footer />
+      <App />
     </div>
   );
 }
