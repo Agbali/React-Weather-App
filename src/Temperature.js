@@ -3,12 +3,12 @@ import React from "react";
 export default function Temperature() {
     return (
       <h2 id="temp">
-        <span class="removeColor" id="symbol"></span>
-        <span class="removeColor" title="convert to Fanrenheit"></span>
-        <button href="#" class="inCelsius" id="Celsius-link">
+        <span className="removeColor" id="symbol">25°</span>
+        <span className="removeColor" title="convert to Fanrenheit"></span>
+        <a href="/" className="inCelsius" id="Celsius-link">
           C
-        </button>
+        </a>
       </h2>
-    );
+    ); 
   }
   

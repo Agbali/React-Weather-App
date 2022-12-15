@@ -1,6 +1,33 @@
 import React from "react";
+import Icondescription from "./Icondescription";
+import Extradescription from "./Extradescription";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import "./App.css";
+import Temperature from "./Temperature";
 
 export default function Country() {
-    return <h1 id="lagosHaiD" class="countryName"></h1>;
-  }
-  
+  return (
+    <Container>
+      <Row>
+        <Col className="countryName">
+          <h1 id="lagosHaiD">Lagos</h1>
+        </Col>
+        <Col xs={6}></Col>
+        <Col></Col>
+      </Row>
+      <Row>
+        <Col>
+          <Temperature />
+          <Extradescription />
+          <button className="onlyButt mb-2">Location</button>
+        </Col>
+        <Col xs={6}></Col>
+        <Col>
+          <Icondescription />
+        </Col>
+      </Row>
+    </Container>
+  );
+}

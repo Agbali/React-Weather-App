@@ -1,14 +1,15 @@
 import React from "react";
+import logo from "./cloud-solid.svg";
 
 export default function Icondescription() {
-    return (
-      <div class="col-2 fs-1">
-        <img src="" alt="icon" id="w-icon" class="source" />
-        <div class="row">
-          <p id="weatherDescr" class="weatherDescription">
-            <span></span>
-          </p>
-        </div>
+  return (
+    <div>
+      <img src={logo} alt="icon" id="w-icon" className="source" />
+      <div>
+        <p id="weatherDescr" className="weatherDescription">
+          <span> Full Cloud</span>
+        </p>
       </div>
-    );
-  }
+    </div>
+  );
+}
