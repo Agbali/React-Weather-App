@@ -139,3 +139,7 @@ body {
 .github {
   text-align: center;
 }
+
+footer a{
+  text-decoration: none;
+}
