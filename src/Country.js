@@ -1,5 +1,4 @@
 import React from "react";
-import Icondescription from "./Icondescription";
 import Extradescription from "./Extradescription";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -14,18 +13,14 @@ export default function Country() {
         <Col className="countryName">
           <h1 id="lagosHaiD">Lagos</h1>
         </Col>
-        <Col xs={6}></Col>
-        <Col></Col>
+        <Col className="Col" xs={6}></Col>
+        <Col className="Col"></Col>
       </Row>
       <Row>
         <Col>
           <Temperature />
           <Extradescription />
-          <button className="onlyButt mb-2">Location</button>
-        </Col>
-        <Col xs={6}></Col>
-        <Col>
-          <Icondescription />
+          <button className="onlyButt mb-4">Location</button>
         </Col>
       </Row>
     </Container>

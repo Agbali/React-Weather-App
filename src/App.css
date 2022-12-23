@@ -1,10 +1,12 @@
-:root{
-  --fa-style-family-classic: "Font Awesome 6 Free";
+:root {
+  --fa-style-family-classic: "Poppins";
   --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
 }
 
 .App {
-  font-family: sans-serif;
+  font-family: var(--fa-style-family-classic);
+  border: 2px solid #dadde1;
+  border-radius: 4px;
 }
 
 body {
@@ -13,21 +15,18 @@ body {
 }
 
 .house-cont {
-  background-color: rgb(157, 191, 243);
+  background-color: rgb(255, 255, 255);
   max-width: 80%;
   margin: 1.5rem auto;
   padding: 4px;
 }
 
-.source{
+.weather_icon {
   width: 80px;
 }
 
-.date{
-  margin-top: -7px;
-}
-.search_inp {
-  width: 20rem;
+.form_control {
+  max-width: 25rem;
   border: 3px solid #fafaf8;
   border-radius: 4rem 0 0 4rem;
   font-size: 20px;
@@ -37,33 +36,18 @@ body {
   background-color: transparent;
 }
 .submitBut {
-  padding: 13px;
-  width: 10rem;
+  padding: 12px;
+  width: 9rem;
   font-size: 20px;
   border: none;
-  margin-top: 2rem;
-  margin-bottom: -1.24rem;
+  margin: 2rem 0 -1.24rem 0;
+  background-color: rgb(202, 84, 231);
 }
+
 .first_box {
   margin-top: 20rem;
 }
 
-.lagos_f h1 {
-  font-size: 70px;
-}
-
-.lagos_f p {
-  font-size: 15px;
-}
-
-.lagos_f h2 {
-  font-size: 30px;
-}
-
-.lagos_f h3 {
-  font-size: 15px;
-  margin-top: -1rem;
-}
 .myarrow i {
   margin: 1.5rem 0 -2rem 0;
 }
@@ -79,12 +63,7 @@ body {
   font-size: 10rem;
   color: yellow;
 }
-.text-center {
-  margin-top: 3rem;
-}
-.container {
-  margin-top: 1rem;
-}
+
 .content {
   margin-left: -1rem;
   font-size: 20px;
@@ -97,33 +76,25 @@ body {
 .countryName h1 {
   font-size: 70px;
   color: darkgoldenrod;
-}
-.tooltip.tooltiptext {
-  width: 160px;
-  bottom: 80%;
-  left: 40%;
-  margin-left: 80px;
+  line-height: 55px;
 }
 
-.inFahrenheit {
-  text-decoration: none;
-}
-.inCelsius {
+.celsius_unit {
   text-decoration: none;
   cursor: default;
   color: black;
+  position: relative;
+  top: -25px;
+  margin-left: 4px;
+  line-height: 1;
 }
 
-.inCelsius:hover {
+.celsius_unit:hover {
   text-decoration: none;
 }
 
-.weatherDescription {
-  font-size: 1rem;
-  margin-left: 0.1rem;
-}
 .onlyButt {
-  background-color: #4caf50;
+  background-color: rgb(202, 84, 231);
   border: none;
   color: white;
   padding: 10px 20px;
@@ -132,14 +103,21 @@ body {
   display: inline-block;
   font-size: 16px;
 }
-.removeColor {
+
+.degree_col {
+  margin-bottom: -20px;
+}
+
+.temp-degree {
   text-decoration: none;
+  font-size: 50px;
+  margin-bottom: -21px;
 }
 
 .github {
   text-align: center;
 }
 
-footer a{
+footer a {
   text-decoration: none;
 }

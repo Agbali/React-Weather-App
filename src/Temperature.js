@@ -1,14 +1,21 @@
 import React from "react";
+import Icondescription from "./Icondescription";
 
 export default function Temperature() {
-    return (
-      <h2 id="temp">
-        <span className="removeColor" id="symbol">25°</span>
-        <span className="removeColor" title="convert to Fanrenheit"></span>
-        <a href="/" className="inCelsius" id="Celsius-link">
-          C
+  return (
+    <div className="row degree_col">
+      <div className="col-10">
+        <span className="temp-degree" id="symbol">
+          25
+        </span>
+        <a href="/" className="celsius_unit" id="Celsius-unit">
+        °C
         </a>
-      </h2>
-    ); 
-  }
-  
+      </div>
+     
+      <div className="col-2">
+        <Icondescription />
+      </div>
+    </div>
+  );
+}
