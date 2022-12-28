@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import "./App.css";
 import axios from "axios";
+import "./App.css";
 
-export default function Form() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+export default function Form(props) {
+  const [weatherData, setWeatherData] = useState({ready: false});
 
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
+      ready: true,
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
       humidity: response.data.temperature.humidity,
@@ -17,10 +17,9 @@ export default function Form() {
       description: response.data.condition.description,
       date: response.data.temperature.time
     });
-    setReady(true);
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div>
         <div>
@@ -92,13 +91,11 @@ export default function Form() {
     );
   } else {
     const apiKey = "ee0352b1690bae3d49da0obbbf5t2a26";
-    let city = "Seoul";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultcity}&key=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
 
-    return "Loading..";
+    return (<p>"Loading.."</p>)
   }
 }
 
-//""

@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <div className="App house-cont">
-      <Form />
+      <Form defaultcity= "New York" />
       <Weather />
       <Footer />
     </div>
