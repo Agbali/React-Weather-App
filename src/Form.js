@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ClipLoader from "react-spinners/ClipLoader";
+import FormattedDate from "./FormattedDate";
 import "./App.css";
 
 export default function Form(props) {
   const [weatherData, setWeatherData] = useState({ready: false});
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: response.data.temperature.current,
@@ -15,7 +16,7 @@ export default function Form(props) {
       city: response.data.country,
       iconUrl: "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/mist-night.png",
       description: response.data.condition.description,
-      date: response.data.temperature.time
+      date: new Date(response.data.time * 1000)
     });
   }
 
@@ -77,7 +78,7 @@ export default function Form(props) {
                   <span id="humidity">{weatherData.humidity}</span>
                   <strong>%</strong>
                 </li>
-                <li className="mt-1">{weatherData.date}</li>
+                <li className="mt-1"><FormattedDate date={weatherData.date}/></li>
               </ul>
             </div>
           </div>
@@ -95,7 +96,19 @@ export default function Form(props) {
 
     axios.get(apiUrl).then(handleResponse);
 
-    return (<p>"Loading.."</p>)
+    return (
+      <div className="sweet-loading">
+        <ClipLoader
+          color="#000000"
+          cssOverride={""}
+          loading= {true}
+          size={15}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+          speedMultiplier={1}
+        />
+      </div>
+    );
   }
 }
 
