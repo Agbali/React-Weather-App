@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import ClipLoader from "react-spinners/ClipLoader";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 import "./App.css";
 
 export default function Form(props) {
-  const [weatherData, setWeatherData] = useState({ready: false});
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultcity);
 
   function handleResponse(response) {
     setWeatherData({
@@ -14,74 +15,51 @@ export default function Form(props) {
       wind: response.data.wind.speed,
       humidity: response.data.temperature.humidity,
       city: response.data.country,
-      iconUrl: "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/mist-night.png",
+      iconUrl:
+        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/mist-night.png",
       description: response.data.condition.description,
-      date: new Date(response.data.time * 1000)
+      date: new Date(response.data.time * 1000),
     });
   }
 
+  function search() {
+    //the function that houses the API without this, the whole code will not run
+    const apiKey = "ee0352b1690bae3d49da0obbbf5t2a26";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    //prevents the page from reloading
+    
+    //search for a city function that will call the API
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+    //collects the value gotten from the form and stores it in the setCity useState
+  }
   if (weatherData.ready) {
     return (
       <div>
         <div>
-          <form className="container">
+          <form onSubmit={handleSubmit} className="container">
             <input
               className="form_control"
               type="search"
               placeholder="Enter for a City.."
               autoFocus="on"
+              onChange={handleCityChange}
+              //calling a function that picks the input of data in the form
             />
             <input type="submit" value="Search" className="submitBut" />
           </form>
         </div>
-        <div className="container">
-          <div className="row">
-            <div className="col countryName">
-              <h1 id="lagosHaiD">{weatherData.city}</h1>
-            </div>
-            <div className="Col-6"></div>
-            <div className="Col"></div>
-          </div>
-
-          <div className="row degree_col">
-            <div className="col-10">
-              <span className="temp-degree" id="symbol">
-                {Math.round(weatherData.temperature)}
-              </span>
-              <a href="/" className="celsius_unit" id="Celsius-unit">
-                °C
-              </a>
-            </div>
-
-            <div className="col-2">
-              <div>
-                <img
-                  src={weatherData.iconUrl}
-                  alt={weatherData.description}
-                  id="w-icon"
-                  className="weather_icon text-capitalize"
-                />
-                <div>
-                  <p id="weatherDescr" className="weatherDescription">
-                    Full Cloud
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div>
-              <ul className="windSpeed">
-                <li>
-                  Wind: <span id="windeck">{weatherData.wind}</span>
-                  <strong>km/h</strong>, Humidity:{" "}
-                  <span id="humidity">{weatherData.humidity}</span>
-                  <strong>%</strong>
-                </li>
-                <li className="mt-1"><FormattedDate date={weatherData.date}/></li>
-              </ul>
-            </div>
-          </div>
+        <WeatherInfo data={weatherData} />
+        <div>
           <div className="row">
             <div className="col-2">
               <button className="onlyButt mb-4">Location</button>
@@ -91,17 +69,13 @@ export default function Form(props) {
       </div>
     );
   } else {
-    const apiKey = "ee0352b1690bae3d49da0obbbf5t2a26";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultcity}&key=${apiKey}&units=metric`;
-
-    axios.get(apiUrl).then(handleResponse);
-
+    search();
     return (
       <div className="sweet-loading">
         <ClipLoader
           color="#000000"
           cssOverride={""}
-          loading= {true}
+          loading={true}
           size={15}
           aria-label="Loading Spinner"
           data-testid="loader"
@@ -111,4 +85,3 @@ export default function Form(props) {
     );
   }
 }
-
