@@ -9,6 +9,7 @@ export default function Form(props) {
   const [city, setCity] = useState(props.defaultcity);
 
   function handleResponse(response) {
+    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: response.data.temperature.current,
@@ -16,7 +17,7 @@ export default function Form(props) {
       humidity: response.data.temperature.humidity,
       city: response.data.country,
       iconUrl:
-        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/mist-night.png",
+        `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
       description: response.data.condition.description,
       date: new Date(response.data.time * 1000),
     });
@@ -33,7 +34,7 @@ export default function Form(props) {
   function handleSubmit(event) {
     event.preventDefault();
     //prevents the page from reloading
-    
+
     //search for a city function that will call the API
     search();
   }

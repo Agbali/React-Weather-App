@@ -32,7 +32,7 @@ export default function WeatherInfo(props) {
             />
             <div>
               <p id="weatherDescr" className="weatherDescription">
-                Full Cloud
+              {props.data.description}
               </p>
             </div>
           </div>
