@@ -10,6 +10,9 @@ export default function Form(props) {
 
   function handleResponse(response) {
     console.log(response.data);
+    //the setWeatherData is one of the const functions in the useState as seen in line 8 but it can also contain 
+    //an object which are as seen below. These objects store the responses from the API and we can call them anywhere
+    //in the code with setWeatherData.ready
     setWeatherData({
       ready: true,
       temperature: response.data.temperature.current,
@@ -59,10 +62,12 @@ export default function Form(props) {
             <input type="submit" value="Search" className="submitBut" />
           </form>
         </div>
+       { /* To be able to create this as a component, we create a component and pass in a property. this property
+        collects the weatherData function from the useState so that we can access it in another js file */}
         <WeatherInfo data={weatherData} />
         <div>
           <div className="row">
-            <div className="col-2">
+            <div className="col-2 ms-2">
               <button className="onlyButt mb-4">Location</button>
             </div>
           </div>
