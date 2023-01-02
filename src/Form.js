@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { BallTriangle } from "react-loader-spinner";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import "./App.css";
 
 export default function Form(props) {
@@ -71,6 +72,7 @@ export default function Form(props) {
             </div>
           </div>
         </div>
+        <WeatherForecast forecast={weatherData}/>
       </div>
     );
   } else {
