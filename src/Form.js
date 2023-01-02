@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import ClipLoader from "react-spinners/ClipLoader";
+import { BallTriangle } from "react-loader-spinner";
 import WeatherInfo from "./WeatherInfo";
 import "./App.css";
 
@@ -10,7 +10,7 @@ export default function Form(props) {
 
   function handleResponse(response) {
     console.log(response.data);
-    //the setWeatherData is one of the const functions in the useState as seen in line 8 but it can also contain 
+    //the setWeatherData is one of the const functions in the useState as seen in line 8 but it can also contain
     //an object which are as seen below. These objects store the responses from the API and we can call them anywhere
     //in the code with setWeatherData.ready
     setWeatherData({
@@ -19,8 +19,7 @@ export default function Form(props) {
       wind: response.data.wind.speed,
       humidity: response.data.temperature.humidity,
       city: response.data.country,
-      iconUrl:
-        `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+      iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
       description: response.data.condition.description,
       date: new Date(response.data.time * 1000),
     });
@@ -62,7 +61,7 @@ export default function Form(props) {
             <input type="submit" value="Search" className="submitBut" />
           </form>
         </div>
-       { /* To be able to create this as a component, we create a component and pass in a property. this property
+        {/* To be able to create this as a component, we create a component and pass in a property. this property
         collects the weatherData function from the useState so that we can access it in another js file */}
         <WeatherInfo data={weatherData} />
         <div>
@@ -77,15 +76,17 @@ export default function Form(props) {
   } else {
     search();
     return (
-      <div className="sweet-loading">
-        <ClipLoader
-          color="#000000"
-          cssOverride={""}
-          loading={true}
-          size={15}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-          speedMultiplier={1}
+      <div className="text-center">
+        <BallTriangle
+          height={100}
+          width={100}
+          radius={5}
+          color="#4fa94d"
+          ariaLabel="ball-triangle-loading"
+          wrapperClass={{}}
+          wrapperStyle=""
+          visible={true}
+         
         />
       </div>
     );
