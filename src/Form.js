@@ -76,6 +76,7 @@ export default function Form(props) {
         <WeatherForecast forecast={weatherData}/>
       </div>
     );
+
   } else {
     search();
     return (
