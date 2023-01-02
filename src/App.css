@@ -48,13 +48,13 @@ body {
   margin-top: 20rem;
 }
 
-.myarrow i {
-  margin: 1.5rem 0 -2rem 0;
-}
 .center-container {
   background-color: #d9dad6;
 }
 
+.iconanddesc{
+  text-align: center;
+}
 .iconix p {
   font-size: 20px;
 }
