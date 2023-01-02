@@ -10,12 +10,13 @@ export default function Form(props) {
   const [city, setCity] = useState(props.defaultcity);
 
   function handleResponse(response) {
-    console.log(response.data);
     //the setWeatherData is one of the const functions in the useState as seen in line 8 but it can also contain
     //an object which are as seen below. These objects store the responses from the API and we can call them anywhere
     //in the code with setWeatherData.ready
     setWeatherData({
+    
       ready: true,
+      coordinates: response.data.coordinates,
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
       humidity: response.data.temperature.humidity,
