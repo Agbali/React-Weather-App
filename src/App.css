@@ -44,9 +44,6 @@ body {
   background-color: rgb(202, 84, 231);
 }
 
-.first_box {
-  margin-top: 20rem;
-}
 
 .center-container {
   background-color: #d9dad6;
@@ -55,19 +52,10 @@ body {
 .iconanddesc{
   text-align: center;
 }
-.iconix p {
-  font-size: 20px;
-}
-
-.mooncloud {
-  font-size: 10rem;
-  color: yellow;
-}
-
 
 .countryName h1 {
   font-size: 70px;
-  color: darkgoldenrod;
+  color: #e5a821;
   line-height: 55px;
 }
 

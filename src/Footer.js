@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="github">
+    <footer className="github mt-2">
       This project was created by{" "}
       <a href="https://twitter.com/omoaloEse" rel="noreferrer" target="_blank">
         Omoalo
